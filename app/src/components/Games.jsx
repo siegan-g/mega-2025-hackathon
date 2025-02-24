@@ -14,6 +14,9 @@ const Games = () => {
     if (game.title === 'World-le') {
       navigate('/wordle');
     }
+    if(game.title === 'Garbage pick up'){
+      navigate('/snake');
+    }
   };
 
   return (
