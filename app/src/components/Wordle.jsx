@@ -12,6 +12,7 @@ const WordleGame = () => {
   const [message, setMessage] = useState("");
   const [keyboardColors, setKeyboardColors] = useState({});
   const [secretWord, setSecretWord] = useState(getRandomWord);
+  const [isDisabled,setIsDisabled] = useState(false);
   const inputRefs = useRef([...Array(MAX_ATTEMPTS)].map(() => Array(WORD_LENGTH).fill(null)));
 
   useEffect(() => {
@@ -67,6 +68,8 @@ const WordleGame = () => {
 
     if (currentGuess.join("") === secretWord) {
       setMessage("🎉 Congrats! You guessed the word right!");
+      setIsDisabled(true);
+
     } else if (guesses.length + 1 === MAX_ATTEMPTS) {
       setMessage(`Game Over! The word was: ${secretWord}`);
     }
@@ -87,6 +90,7 @@ const WordleGame = () => {
   const resetGame = () => {
     setGuesses([]);
     setCurrentGuess(Array(WORD_LENGTH).fill(""));
+    setIsDisabled(false);
     setActiveRow(0);
     setMessage("");
     setKeyboardColors({});
@@ -107,7 +111,7 @@ const WordleGame = () => {
         Restart
       </button>
 
-      <div className="grid grid-rows-6 gap-2 mb-4">
+      <div className={isDisabled? "grid grid-rows-6 gap-2 mb-4 pointer-events-none opacity-50":"grid grid-rows-6 gap-2 mb-4"}>
         {[...Array(MAX_ATTEMPTS)].map((_, row) => (
           <div key={row} className="flex gap-2">
             {[...Array(WORD_LENGTH)].map((_, col) => {
