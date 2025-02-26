@@ -12,7 +12,7 @@ const WordleGame = () => {
   const [message, setMessage] = useState("");
   const [keyboardColors, setKeyboardColors] = useState({});
   const [secretWord, setSecretWord] = useState(getRandomWord);
-  const [isDisabled,setIsDisabled] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const inputRefs = useRef([...Array(MAX_ATTEMPTS)].map(() => Array(WORD_LENGTH).fill(null)));
 
   useEffect(() => {
@@ -70,6 +70,11 @@ const WordleGame = () => {
       setMessage("🎉 Congrats! You guessed the word right!");
       setIsDisabled(true);
 
+      // added flip animation to the tiles with delay
+      inputRefs.current[activeRow].forEach((input, index) => {
+        input.style.animation = `flip-vertical 0.6s ease-in-out ${index * 0.1}s`;
+      });
+
     } else if (guesses.length + 1 === MAX_ATTEMPTS) {
       setMessage(`Game Over! The word was: ${secretWord}`);
     }
@@ -100,6 +105,21 @@ const WordleGame = () => {
 
   return (
     <div className="flex flex-col items-center p-4 font-mono">
+      <style>
+        {`
+          @keyframes flip-vertical {
+            0% {
+              transform: rotateX(0);
+            }
+            50% {
+              transform: rotateX(90deg);
+            }
+            100% {
+              transform: rotateX(0);
+            }
+          }
+        `}
+      </style>
       <h1 className="text-4xl font-bold mb-4">WORLD-LE</h1>
       <h3 className="text-xl mb-4">Guess the 5-letter word:</h3>
       
@@ -111,7 +131,7 @@ const WordleGame = () => {
         Restart
       </button>
 
-      <div className={isDisabled? "grid grid-rows-6 gap-2 mb-4 pointer-events-none opacity-50":"grid grid-rows-6 gap-2 mb-4"}>
+      <div className={isDisabled ? "grid grid-rows-6 gap-2 mb-4 pointer-events-none opacity-50" : "grid grid-rows-6 gap-2 mb-4"}>
         {[...Array(MAX_ATTEMPTS)].map((_, row) => (
           <div key={row} className="flex gap-2">
             {[...Array(WORD_LENGTH)].map((_, col) => {
@@ -149,8 +169,6 @@ const WordleGame = () => {
           </div>
         ))}
       </div>
-
-      
     </div>
   );
 };
