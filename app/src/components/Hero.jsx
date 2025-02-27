@@ -13,7 +13,8 @@ export default function Hero() {
           <div className="lg:absolute bottom-0 left-0 translate-y-0 w-full flex flex-col items-start p-6 shadow-lg mx-4 md:mx-0 text-white text-5xl font-medium gap-2">
             <h2>Promoting Education</h2>
             <h2>
-              Protecting the Earth
+              Protecting 
+              <h2 className="inline italic"> the Earth</h2>
             </h2>
             <h2>Securing Our Future</h2>
           </div>
