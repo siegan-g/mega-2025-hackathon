@@ -2,11 +2,11 @@ import { Play } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative py-12 flex items-center justify-center">
-      <div className="container mx-auto px-12">
-        <div className="bg-black w-full h-64 md:h-128 relative rounded-xl">
+    <section className="relative py-4 flex items-center justify-center">
+      <div className="container mx-auto px-4">
+        <div className="bg-black w-full h-64 md:h-156 relative rounded-xl">
           <img
-            src="https://picsum.photos/1440/512"
+            src="https://picsum.photos/1920/1080"
             className="w-full h-full rounded-xl"
           ></img>
 
