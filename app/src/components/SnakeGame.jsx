@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import appleIcon from "../assets/apple.png";
 import paperIcon from "../assets/paper.png";
 import canIcon from "../assets/can.png";
+import coinIcon from "../assets/coin.png";
 import { FaRedo } from "react-icons/fa";
 
 const GRID_SIZE = 20;
@@ -15,10 +16,11 @@ const DIRECTIONS = {
 
 const SnakeGame = () => {
   const [snake, setSnake] = useState([{ x: 10, y: 10 }]);
-  const [food, setFood] = useState({ x: 5, y: 5, icon: appleIcon }); 
+  const [food, setFood] = useState({ x: 5, y: 5, icon: appleIcon });
   const [direction, setDirection] = useState(DIRECTIONS.ArrowRight);
   const [isGameOver, setIsGameOver] = useState(false);
   const [isGameStarted, setIsGameStarted] = useState(false);
+  const [score, setScore] = useState(0); 
 
   useEffect(() => {
     const handleKeyPress = (e) => {
@@ -53,6 +55,7 @@ const SnakeGame = () => {
     const newSnake = [newHead, ...snake];
     if (newHead.x === food.x && newHead.y === food.y) {
       setFood(generateFood());
+      setScore(score + 1); 
     } else {
       newSnake.pop();
     }
@@ -71,13 +74,13 @@ const SnakeGame = () => {
 
   const generateFood = () => {
     let newFood;
-    const icons = [paperIcon, canIcon, appleIcon]; 
-    const randomIcon = icons[Math.floor(Math.random() * icons.length)]; 
+    const icons = [paperIcon, canIcon, appleIcon];
+    const randomIcon = icons[Math.floor(Math.random() * icons.length)];
     do {
       newFood = {
         x: Math.floor(Math.random() * GRID_SIZE),
         y: Math.floor(Math.random() * GRID_SIZE),
-        icon: randomIcon, 
+        icon: randomIcon,
       };
     } while (snake.some((segment) => segment.x === newFood.x && segment.y === newFood.y));
     return newFood;
@@ -89,12 +92,13 @@ const SnakeGame = () => {
     setDirection(DIRECTIONS.ArrowRight);
     setIsGameOver(false);
     setIsGameStarted(false);
+    setScore(0); 
   };
 
   return (
     <div style={{ backgroundColor: "#d5d8dc" }} className="flex flex-col items-center h-screen p-8">
       <h1 className="text-[#1e8449] text-4xl font-bold mb-8">Snake Game</h1>
-  
+
       <div className="flex items-start space-x-8">
         <div className="flex flex-col">
           <div className="w-64 p-4 bg-white rounded-lg shadow-md">
@@ -104,10 +108,10 @@ const SnakeGame = () => {
               the walls or yourself, have fun and help keep the planet clean!
             </p>
           </div>
-  
+
           {isGameOver && (
-            <div className="mt-4 flex items-center"> 
-              <h3 className="text-[#ec7063] text-lg font-semibold mr-2">Game Over!</h3> 
+            <div className="mt-4 flex items-center">
+              <h3 className="text-[#ec7063] text-lg font-semibold mr-2">Game Over!</h3>
               <button
                 onClick={resetGame}
                 style={{ backgroundColor: "#52be80" }}
@@ -119,7 +123,7 @@ const SnakeGame = () => {
             </div>
           )}
         </div>
-  
+
         <div
           className="grid"
           style={{
@@ -151,6 +155,11 @@ const SnakeGame = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <img src={coinIcon} alt="coin" style={{ width: "24px", height: "24px" }} />
+          <span className="text-xl font-bold">{score}</span>
         </div>
       </div>
     </div>
