@@ -17,6 +17,9 @@ const Games = () => {
     if(game.title === 'Garbage pick up'){
       navigate('/snake');
     }
+    if(game.title === 'Puzzle Tile'){
+      navigate('/trivia');
+    }
   };
 
   return (

@@ -120,18 +120,18 @@ const WordleGame = () => {
           }
         `}
       </style>
-      <h1 className="text-4xl font-bold mb-4">WORLD-LE</h1>
-      <h3 className="text-xl mb-4">Guess the 5-letter word:</h3>
+      <h1 className="text-[#1e8449] text-4xl font-bold mb-2">WORLD-LE</h1>
+      <h3 className="text-xl mb-2">Guess the 5-letter word:</h3>
       
-      {message && <p className="mt-4 text-xl">{message}</p>}
+      {message && <p className="mt-2 text-xl">{message}</p>}
       <button
         onClick={resetGame}
-        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+        className="mt-4 bg-blue-500 text-white px-2 py-2 rounded"
       >
         Restart
       </button>
 
-      <div className={isDisabled ? "grid grid-rows-6 gap-2 mb-4 pointer-events-none opacity-50" : "grid grid-rows-6 gap-2 mb-4"}>
+      <div className={isDisabled ? "grid grid-rows-6 gap-2 mb-4 pointer-events-none opacity-50" : "grid grid-rows-6 gap-2 mb-4 py-2"}>
         {[...Array(MAX_ATTEMPTS)].map((_, row) => (
           <div key={row} className="flex gap-2">
             {[...Array(WORD_LENGTH)].map((_, col) => {

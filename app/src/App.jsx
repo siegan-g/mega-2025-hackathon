@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Games from './components/Games';
 import WordleGame from './components/Wordle';
 import SnakeGame from './components/SnakeGame';
+import TriviaGame from './components/TriviaGame';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Games />} />
         <Route path="/wordle" element={<WordleGame />} />
         <Route path="/snake" element={<SnakeGame />} />
+        <Route path="/trivia" element={<TriviaGame />} />
       </Routes>
     </Router>
   );
