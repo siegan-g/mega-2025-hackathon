@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/GradientShadow.css'; 
 
 const Games = () => {
   const navigate = useNavigate();
@@ -24,11 +25,13 @@ const Games = () => {
 
   return (
     <div className="p-4">
+      <h2 className="text-3xl font-bold mb-4">Games</h2>
+      <h2 className="text-xl font-bold mb-2">Choose a game to play!</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {games.map((game) => (
           <div
             key={game.id}
-            className="border rounded-lg p-4 shadow-md cursor-pointer"
+                        className="border rounded-lg p-4 shadow-md cursor-pointer transform transition-transform duration-200 hover:shadow-lg hover:scale-105 gradient-border"
             onClick={() => handleTileClick(game)}
           >
             <h2 className="text-xl font-bold mb-2">{game.title}</h2>
