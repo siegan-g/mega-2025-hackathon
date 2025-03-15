@@ -1,5 +1,4 @@
-import { ExpandableCard } from "./components/ExpandableCard";
-import Fundraisers from "./components/Fundraisers";
+import ExpandableCard from "./components/ExpandableCard";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
@@ -8,7 +7,6 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <ExpandableCard/>
     </>
   );
 }
