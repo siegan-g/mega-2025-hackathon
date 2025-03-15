@@ -6,12 +6,15 @@ import SnakeGame from './components/SnakeGame';
 import TriviaGame from './components/TriviaGame';
 import LearningHub from './components/LearningHub';
 import SDGChatbot from './components/SDGChatbot';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<><Games /><LearningHub/><SDGChatbot/></>} />
+        <Route path="/" element={<><Navbar />
+          <Hero /><Games /><LearningHub/></>} />
         <Route path="/wordle" element={<WordleGame />} />
         <Route path="/snake" element={<SnakeGame />} />
         <Route path="/trivia" element={<TriviaGame />} />

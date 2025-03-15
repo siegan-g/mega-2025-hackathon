@@ -70,15 +70,19 @@ const TriviaGame = () => {
   };
 
   const handleAnswerClick = (answer) => {
-    setSelectedAnswer(answer);
-    setIsCorrect(answer === goals[prizeNumber].definition);
+    if (isCorrect === null) { 
+      setSelectedAnswer(answer);
+      setIsCorrect(answer === goals[prizeNumber].definition);
+    }
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", minHeight: "500px" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", minHeight: "500px" }}className="flex flex-col items-center h-screen p-8">
       <h1 className="text-[#1e8449] text-4xl font-bold mb-8">Trivia Game</h1>
       <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "20px", width: "100%", justifyContent: "center" }}>
         <Wheel
+        outerBorderColor="grey"
+        radiusLineColor="grey"
           mustStartSpinning={mustSpin}
           backgroundColors={[
             "#e5233d", "#dda73a", "#4ca146", "#c7212f", "#ef402d",
@@ -123,25 +127,26 @@ const TriviaGame = () => {
             }}>
               <h2 style={{ fontSize: "22px", color: "#333" }}>{question}</h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "15px" }}>
-                {options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswerClick(option.definition)}
-                    style={{
-                      padding: "10px",
-                      fontSize: "16px",
-                      borderRadius: "5px",
-                      border: "1px solid #ddd",
-                      backgroundColor: isCorrect === null ? "#fff" :
-                        option.definition === goals[prizeNumber].definition ? "#4CAF50" : "#FF4F4F",
-                      color: isCorrect === null ? "#333" : "#fff",
-                      cursor: "pointer",
-                      transition: "background 0.3s ease"
-                    }}
-                  >
-                    {option.definition}
-                  </button>
-                ))}
+              {options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleAnswerClick(option.definition)}
+                  disabled={isCorrect !== null} 
+                  style={{
+                    padding: "10px",
+                    fontSize: "16px",
+                    borderRadius: "5px",
+                    border: "1px solid #ddd",
+                    backgroundColor: isCorrect === null ? "#fff" :
+                      option.definition === goals[prizeNumber].definition ? "#4CAF50" : "#FF4F4F",
+                    color: isCorrect === null ? "#333" : "#fff",
+                    cursor: isCorrect === null ? "pointer" : "not-allowed", 
+                    transition: "background 0.3s ease"
+                  }}
+                >
+                  {option.definition}
+                </button>
+              ))}
               </div>
               {isCorrect !== null && (
                 <p style={{

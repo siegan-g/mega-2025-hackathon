@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const SDGChatbot = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
 
-  const API_URL = "https://api-inference.huggingface.co/models/mistral/mistral-7B";
-  const API_KEY = "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"; 
+  const API_URL = process.env.REACT_APP_API_URL;
+  const API_KEY = process.env.REACT_APP_HUGGINGFACE_API_KEY;
+
+  useEffect(() => {
+    console.log("SDGChatbot component mounted");
+    console.log("API_URL:", API_URL);
+    console.log("API_KEY:", API_KEY);
+  }, []);
 
   const sendMessage = async () => {
     if (!input.trim()) return;

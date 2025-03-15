@@ -104,7 +104,7 @@ const WordleGame = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-4 font-mono">
+    <div className="flex flex-col items-center h-screen p-8">
       <style>
         {`
           @keyframes flip-vertical {
@@ -121,16 +121,18 @@ const WordleGame = () => {
         `}
       </style>
       <h1 className="text-[#1e8449] text-4xl font-bold mb-2">WORLD-LE</h1>
-      <h3 className="text-xl mb-2">Guess the 5-letter word:</h3>
+      <div className="flex items-center gap-4 mb-2">
+        <h3 className="text-xl">Guess the 5-letter word:</h3>
+        <button
+          onClick={resetGame}
+          className="bg-green-500 text-white px-2 py-2 rounded"
+        >
+          New Game
+        </button>
+      </div>
       
       {message && <p className="mt-2 text-xl">{message}</p>}
-      <button
-        onClick={resetGame}
-        className="mt-4 bg-blue-500 text-white px-2 py-2 rounded"
-      >
-        Restart
-      </button>
-
+      
       <div className={isDisabled ? "grid grid-rows-6 gap-2 mb-4 pointer-events-none opacity-50" : "grid grid-rows-6 gap-2 mb-4 py-2"}>
         {[...Array(MAX_ATTEMPTS)].map((_, row) => (
           <div key={row} className="flex gap-2">
@@ -154,7 +156,7 @@ const WordleGame = () => {
           </div>
         ))}
       </div>
-
+  
       <div className="grid grid-rows-3 gap-2">
         {["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"].map((row, rowIndex) => (
           <div key={rowIndex} className="flex gap-2 justify-center">

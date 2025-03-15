@@ -7,7 +7,7 @@ const Games = () => {
 
   const games = [
     { id: 1, title: 'Garbage pick up', description: 'Just like Snake, make the snake clean the streets by picking up litter' },
-    { id: 2, title: 'Puzzle Tile', description: 'Description for Game 2' },
+    { id: 2, title: 'Trivia Game', description: 'Time to spin!  Spin the wheel and answer the correct SDG goal by the Icon' },
     { id: 3, title: 'World-le', description: 'Like Wordle but with a sustainability theme' },
   ];
 
@@ -18,7 +18,7 @@ const Games = () => {
     if(game.title === 'Garbage pick up'){
       navigate('/snake');
     }
-    if(game.title === 'Puzzle Tile'){
+    if(game.title === 'Trivia Game'){
       navigate('/trivia');
     }
   };
