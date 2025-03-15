@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Wheel } from "react-custom-roulette";
 
-// Import your images (ensure the paths are correct)
 import goal1 from "../SDGImages/goal1.png";
 import goal2 from "../SDGImages/goal2.png";
 import goal3 from "../SDGImages/goal3.png";
@@ -75,10 +74,22 @@ const TriviaGame = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", minHeight: "500px" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", minHeight: "500px" }} className="flex flex-col items-center h-screen p-8">
       <h1 className="text-[#1e8449] text-4xl font-bold mb-8">Trivia Game</h1>
       <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "20px", width: "100%", justifyContent: "center" }}>
+      <div style={{ marginLeft: "20px", padding: "15px", background: "#f9f9f9", borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}>
+          <h2 style={{ fontSize: "22px", color: "#333", marginBottom: "10px" }}>Instructions</h2>
+          <ul style={{ listStyleType: "disc", paddingLeft: "20px", color: "#333" }}>
+            <li>Click the "Spin the Wheel" button to start the game.</li>
+            <li>Wait for the wheel to stop spinning.</li>
+            <li>A question will appear based on the selected goal.</li>
+            <li>Select the correct answer from the options provided.</li>
+            <li>You will be notified if your answer is correct or incorrect.</li>
+          </ul>
+        </div>
         <Wheel
+          outerBorderColor="grey"
+          radiusLineColor="grey"
           mustStartSpinning={mustSpin}
           backgroundColors={[
             "#e5233d", "#dda73a", "#4ca146", "#c7212f", "#ef402d",
@@ -127,6 +138,7 @@ const TriviaGame = () => {
                   <button
                     key={index}
                     onClick={() => handleAnswerClick(option.definition)}
+                    disabled={isCorrect !== null}
                     style={{
                       padding: "10px",
                       fontSize: "16px",
@@ -135,7 +147,7 @@ const TriviaGame = () => {
                       backgroundColor: isCorrect === null ? "#fff" :
                         option.definition === goals[prizeNumber].definition ? "#4CAF50" : "#FF4F4F",
                       color: isCorrect === null ? "#333" : "#fff",
-                      cursor: "pointer",
+                      cursor: isCorrect === null ? "pointer" : "not-allowed",
                       transition: "background 0.3s ease"
                     }}
                   >
@@ -156,6 +168,7 @@ const TriviaGame = () => {
             </div>
           )}
         </div>
+        
       </div>
     </div>
   );

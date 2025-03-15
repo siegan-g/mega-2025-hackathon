@@ -23,16 +23,18 @@ const Games = () => {
   };
 
   return (
-    <div className="p-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="p-8 bg-gray-100 min-h-screen">
+      <h2 className="text-4xl font-bold mb-6 text-center">Games</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">Choose a game to play!</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {games.map((game) => (
           <div
             key={game.id}
-            className="border rounded-lg p-4 shadow-md cursor-pointer"
+            className="border rounded-lg p-6 shadow-lg cursor-pointer transform transition-transform duration-200 hover:shadow-xl hover:scale-105 gradient-border bg-white"
             onClick={() => handleTileClick(game)}
           >
-            <h2 className="text-xl font-bold mb-2">{game.title}</h2>
-            <p>{game.description}</p>
+            <h2 className="text-2xl font-bold mb-4">{game.title}</h2>
+            <p className="text-gray-700">{game.description}</p>
           </div>
         ))}
       </div>

@@ -4,9 +4,10 @@ import paperIcon from "../assets/paper.png";
 import canIcon from "../assets/can.png";
 import coinIcon from "../assets/coin.png";
 import { FaRedo } from "react-icons/fa";
+import backgroundImage from "../assets/background.jpg";
 
 const GRID_SIZE = 20;
-const CELL_SIZE = 20;
+const CELL_SIZE = 30;
 const DIRECTIONS = {
   ArrowUp: { x: 0, y: -1 },
   ArrowDown: { x: 0, y: 1 },
@@ -96,12 +97,12 @@ const SnakeGame = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#d5d8dc" }} className="flex flex-col items-center h-screen p-8">
+    <div style={{ backgroundColor: "#d5d8dc", backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }} className="flex flex-col items-center h-screen p-8">
       <h1 className="text-[#1e8449] text-4xl font-bold mb-8">Snake Game</h1>
 
       <div className="flex items-start space-x-8">
         <div className="flex flex-col">
-          <div className="w-64 p-4 bg-white rounded-lg shadow-md">
+          <div className="w-64 p-4 bg-white rounded-lg shadow-md border border-gray-300">
             <h2 className="text-[#1e8449] text-xl font-bold mb-4">Instructions</h2>
             <p className="text-gray-700">
               Use the arrow keys to help the snake. Eat the garbage to grow and help the environment. Avoid colliding with
@@ -125,13 +126,12 @@ const SnakeGame = () => {
         </div>
 
         <div
-          className="grid"
+          className="grid border border-gray-300 p-2 bg-white rounded-lg shadow-md"
           style={{
             display: "grid",
             gridTemplateColumns: `repeat(${GRID_SIZE}, ${CELL_SIZE}px)`,
             gridTemplateRows: `repeat(${GRID_SIZE}, ${CELL_SIZE}px)`,
             gap: "1px",
-            background: "white",
           }}
         >
           {Array.from({ length: GRID_SIZE * GRID_SIZE }).map((_, index) => {
@@ -157,7 +157,7 @@ const SnakeGame = () => {
           })}
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 bg-white p-2 rounded-lg shadow-md border border-gray-300">
           <img src={coinIcon} alt="coin" style={{ width: "24px", height: "24px" }} />
           <span className="text-xl font-bold">{score}</span>
         </div>
