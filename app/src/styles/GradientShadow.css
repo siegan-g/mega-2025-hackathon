@@ -1,0 +1,33 @@
+@keyframes gradient-border {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .gradient-border {
+    position: relative;
+    z-index: 0;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: white;
+  }
+  
+  .gradient-border:hover::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(45deg, #5485b6, #569e80, #FF7400, #f3578b);
+    background-size: 200% 200%;
+    animation: gradient-border 3s linear infinite; /* Adjusted duration */
+  }
