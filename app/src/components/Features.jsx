@@ -31,17 +31,16 @@ export function Features() {
   ];
   return (
     <section id="games" className="pt-10 md:pt-30 px-12">
-      <div className="relative py-10 lg:py-40 max-w-7xl mx-auto">
-        <div className="px-8">
-          <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-semibold text-black dark:text-white">
-            Making Learning About Sustainability Accessible
           </h4>
+      <div className="relative pt-10 lg:pt-40 max-w-7xl mx-auto">
+        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-left md:text-center tracking-tight font-semibold text-black dark:text-white">
+          Making Learning About Sustainability Accessible
+        </h4>
 
-          <p className="text-md md:text-lg  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-            Dive into fun, interactive games that transform UN Sustainable
-            Development Goals into exciting adventures for the whole family!
-          </p>
-        </div>
+        <p className="text-md md:text-lg  max-w-2xl  my-4 mx-auto text-neutral-500 text-left md:text-center font-normal dark:text-neutral-300">
+          Dive into fun, interactive games that transform UN Sustainable
+          Development Goals into exciting adventures for the whole family!
+        </p>
         <div className="relative ">
           <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800 border-neutral-100">
             {features.map((feature) => (
