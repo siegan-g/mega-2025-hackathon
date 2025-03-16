@@ -37,7 +37,7 @@ const WorldHungerMap = () => {
       type: "choropleth",
       locations: hungerData.map((item) => item.country),
       z: hungerData.map((item) => item.undernourished), 
-      text: hungerData.map((item) => `Country: ${item.country}<br>Undernourishment: ${item.undernourished}%`), // Add hover text
+      text: hungerData.map((item) => `Country: ${item.country}<br>Undernourishment: ${item.undernourished}%`), 
       hoverinfo: "text",
       colorscale: [
         [0, 'rgb(255, 245, 240)'],
@@ -57,7 +57,6 @@ const WorldHungerMap = () => {
 
   const layout = {
     geo: {
-      showcoastlines: true,
       coastlinecolor: "rgb(255, 255, 255)",
       projection: {
         type: "Mercator",
@@ -65,18 +64,18 @@ const WorldHungerMap = () => {
       scope: "world",
       countrycolor: "rgb(255, 255, 255)",
     },
-    title: "Global Undernourishment Rates (2022)",
     margin: {
       l: 0,
       r: 0,
-      t: 50,
+      t: 0,
       b: 0,
     },
   };
 
   return (
+    <div className="flex flex-col items-left">
+    <h1 className="text-2xl font-bold mb-4">Global Undernourishment Rates (2022)</h1>
     <div style={{ width: "100%", height: "600px" }}>
-      <h1 className="text-2xl font-bold mb-4 text-center">Global Undernourishment Rates (2022)</h1>
       <Plot
         data={data}
         layout={layout}
@@ -86,6 +85,7 @@ const WorldHungerMap = () => {
         }}
       />
     </div>
+  </div>
   );
 };
 

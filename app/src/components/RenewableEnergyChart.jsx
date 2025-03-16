@@ -13,13 +13,18 @@ const RenewableEnergyChart = () => {
         
         const cleanedData = parsed.map(row => ({
           year: row.year,
-          fossil_fuels: Number(row.coal) + Number(row.natural_gas) + Number(row.oil),
-          renewable: Number(row.hydro) + Number(row.wind_solar_other) + Number(row.biofuels_waste),
+          fossil_fuels: (Number(row.coal) + Number(row.natural_gas) + Number(row.oil)) / 1000,
+          renewable: (Number(row.hydro) + Number(row.wind_solar_other) + Number(row.biofuels_waste)) / 1000, 
         }));
 
         setData(cleanedData);
       });
   }, []);
+
+  const formatYAxis = (tickItem) => {
+    return `${(tickItem / 1000).toFixed(1)} TWh`; 
+  };
+  
 
   return (
     <div>
@@ -27,8 +32,10 @@ const RenewableEnergyChart = () => {
       <ResponsiveContainer width="100%" height={400}>
         <AreaChart data={data}>
           <XAxis dataKey="year" label={{ value: "Year", position: "insideBottomRight", offset: -5 }} />
-          <YAxis label={{ value: "Energy Supply (TWh)", angle: -90, position: "insideLeft" }} />
-          <Tooltip formatter={(value, name) => [`${value} TWh`, name === "renewable" ? "Renewable Energy" : "Fossil Fuels"]} />
+          <YAxis 
+            tickFormatter={formatYAxis} 
+          />
+          <Tooltip formatter={(value, name) => [`${value} GWh`, name === "renewable" ? "Renewable Energy" : "Fossil Fuels"]} />
           <CartesianGrid strokeDasharray="3 3" />
           <Legend verticalAlign="top" height={36} />
           <Area type="monotone" dataKey="renewable" stackId="1" stroke="#28a745" fill="#28a745" name="Renewable Energy" />

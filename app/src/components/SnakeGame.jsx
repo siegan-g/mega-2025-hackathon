@@ -8,7 +8,7 @@ import { FaRedo } from "react-icons/fa";
 import backgroundImage from "../assets/background.jpg";
 
 const GRID_SIZE = 20;
-const CELL_SIZE = 25;
+const CELL_SIZE = 30;
 const DIRECTIONS = {
   ArrowUp: { x: 0, y: -1 },
   ArrowDown: { x: 0, y: 1 },
