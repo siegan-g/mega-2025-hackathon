@@ -18,7 +18,7 @@ const links = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="fixed flex p-8 flex-row gap-8 items-center justify-between md:justify-start z-10 bg-white w-full shadow-md">
+    <nav className="fixed flex p-8 flex-row gap-8 items-center justify-between md:justify-start z-100 bg-white w-full shadow-md">
       <div className="flex flex-row gap-2 items-center">
         <Earth color="#0BA159" size={36} />
         <a className="font-bold text-xl">NatureTek Academy</a>

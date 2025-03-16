@@ -4,21 +4,22 @@ import { motion } from "motion/react";
 import { Play } from "lucide-react";
 
 export function Games() {
-  const features = [
+  const games = [
     {
-      title: "Track issues effectively",
+      title: "Snake",
       description:
-        "Track and manage your project issues with ease using our intuitive interface.",
+        "A classic game that challenges your reflexes and strategic thinking, with a twist.",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800 border-neutral-100",
     },
     {
-      title: "Capture pictures with AI",
+      title: "GreenGuess",
       description:
-        "Capture stunning photos effortlessly using our advanced AI technology.",
+        "A spin on a popular word guessing game with a eco-friendly theme",
       skeleton: <SkeletonTwo />,
-      className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800 border-neutral-100",
+      className:
+        "border-b col-span-1 lg:col-span-2 dark:border-neutral-800 border-neutral-100",
     },
     {
       title: "Watch our AI on YouTube",
@@ -37,29 +38,31 @@ export function Games() {
     },
   ];
   return (
-    <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
-      <div className="px-8">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-          Packed with thousands of features
-        </h4>
+    <section id="games" className="pt-10 md:pt-30 px-12">
+      <div className="relative py-10 lg:py-40 max-w-7xl mx-auto">
+        <div className="px-8">
+          <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-semibold text-black dark:text-white">
+            Learn Sustainability By Playing Games
+          </h4>
 
-        <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          From Image generation to video generation, Everything AI has APIs for
-          literally everything. It can even create this website copy for you.
-        </p>
-      </div>
-      <div className="relative ">
-        <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800 border-neutral-100">
-          {features.map((feature) => (
-            <FeatureCard key={feature.title} className={feature.className}>
-              <FeatureTitle>{feature.title}</FeatureTitle>
-              <FeatureDescription>{feature.description}</FeatureDescription>
-              <div className=" h-full w-full">{feature.skeleton}</div>
-            </FeatureCard>
-          ))}
+          <p className="text-md md:text-lg  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+            Dive into fun, interactive games that transform UN Sustainable
+            Development Goals into exciting adventures for the whole family!
+          </p>
+        </div>
+        <div className="relative ">
+          <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800 border-neutral-100">
+            {games.map((feature) => (
+              <FeatureCard key={feature.title} className={feature.className}>
+                <FeatureTitle>{feature.title}</FeatureTitle>
+                <FeatureDescription>{feature.description}</FeatureDescription>
+                <div className=" h-full w-full">{feature.skeleton}</div>
+              </FeatureCard>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
