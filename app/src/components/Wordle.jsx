@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import worldleImage from "../assets/worldle.png"; 
 
 const WORD_LENGTH = 5;
 const MAX_ATTEMPTS = 6;
@@ -104,7 +105,7 @@ const WordleGame = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-4 font-mono">
+    <div className="flex flex-col items-center h-screen p-4 sm:p-8">
       <style>
         {`
           @keyframes flip-vertical {
@@ -119,21 +120,23 @@ const WordleGame = () => {
             }
           }
         `}
-      </style>
-      <h1 className="text-[#1e8449] text-4xl font-bold mb-2">WORLD-LE</h1>
-      <h3 className="text-xl mb-2">Guess the 5-letter word:</h3>
+      </style> 
+      <img src={worldleImage} alt="Worldle" className="mb-8" style={{ width: '300px', height: 'auto' }} />
+      <div className="flex flex-col sm:flex-row items-center gap-4 mb-2">
+        <h3 className="text-lg sm:text-xl">Guess the 5-letter word:</h3>
+        <button
+          onClick={resetGame}
+          className="bg-green-500 text-white px-2 py-2 rounded"
+        >
+          New Game
+        </button>
+      </div>
       
-      {message && <p className="mt-2 text-xl">{message}</p>}
-      <button
-        onClick={resetGame}
-        className="mt-4 bg-blue-500 text-white px-2 py-2 rounded"
-      >
-        Restart
-      </button>
-
+      {message && <p className="mt-2 text-lg sm:text-xl">{message}</p>}
+      
       <div className={isDisabled ? "grid grid-rows-6 gap-2 mb-4 pointer-events-none opacity-50" : "grid grid-rows-6 gap-2 mb-4 py-2"}>
         {[...Array(MAX_ATTEMPTS)].map((_, row) => (
-          <div key={row} className="flex gap-2">
+          <div key={row} className="flex gap-1 sm:gap-2">
             {[...Array(WORD_LENGTH)].map((_, col) => {
               const letter = guesses[row]?.[col] || (row === activeRow ? currentGuess[col] : "");
               return (
@@ -143,7 +146,7 @@ const WordleGame = () => {
                   value={letter}
                   onChange={() => {}}
                   onKeyDown={(e) => handleKeyPress(e, row, col)}
-                  className={`w-12 h-12 text-center border-2 border-gray-300 text-xl font-bold uppercase focus:outline-none ${
+                  className={`w-10 h-10 sm:w-12 sm:h-12 text-center border-2 border-gray-300 text-lg sm:text-xl font-bold uppercase focus:outline-none ${
                     row < activeRow ? getLetterStyle(letter, col) : ""
                   }`}
                   maxLength={1}
@@ -154,14 +157,14 @@ const WordleGame = () => {
           </div>
         ))}
       </div>
-
-      <div className="grid grid-rows-3 gap-2">
+  
+      <div className="grid grid-rows-3 gap-1 sm:gap-2">
         {["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"].map((row, rowIndex) => (
-          <div key={rowIndex} className="flex gap-2 justify-center">
+          <div key={rowIndex} className="flex gap-1 sm:gap-2 justify-center">
             {row.split("").map((key) => (
               <button
                 key={key}
-                className={`w-12 h-12 text-xl font-bold rounded-md ${keyboardColors[key] || "bg-gray-300"}`}
+                className={`w-10 h-10 sm:w-12 sm:h-12 text-lg sm:text-xl font-bold rounded-md ${keyboardColors[key] || "bg-gray-300"}`}
               >
                 {key}
               </button>

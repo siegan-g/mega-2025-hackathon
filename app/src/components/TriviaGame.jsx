@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Wheel } from "react-custom-roulette";
+import backgroundImage from "../assets/whitebackground.jpg";
+import triviaGameImage from "../assets/trivia-game.png"; 
 
 import goal1 from "../SDGImages/goal1.png";
 import goal2 from "../SDGImages/goal2.png";
@@ -74,17 +76,16 @@ const TriviaGame = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", minHeight: "500px" }} className="flex flex-col items-center h-screen p-8">
-      <h1 className="text-[#1e8449] text-4xl font-bold mb-8">Trivia Game</h1>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "20px", width: "100%", justifyContent: "center" }}>
-      <div style={{ marginLeft: "20px", padding: "15px", background: "#f9f9f9", borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}>
+    <div style={{ backgroundImage: `url(${backgroundImage})`, display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", minHeight: "100vh", padding: "20px" }}>
+      <img src={triviaGameImage} alt="Trivia Game" className="mb-8" style={{ width: '300px', height: 'auto' }} />
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: "20px", width: "100%", justifyContent: "center", flexWrap: "wrap" }}>
+        <div style={{ padding: "15px", background: "#f9f9f9", borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", maxWidth: "300px" }}>
           <h2 style={{ fontSize: "22px", color: "#333", marginBottom: "10px" }}>Instructions</h2>
           <ul style={{ listStyleType: "disc", paddingLeft: "20px", color: "#333" }}>
             <li>Click the "Spin the Wheel" button to start the game.</li>
             <li>Wait for the wheel to stop spinning.</li>
             <li>A question will appear based on the selected goal.</li>
             <li>Select the correct answer from the options provided.</li>
-            <li>You will be notified if your answer is correct or incorrect.</li>
           </ul>
         </div>
         <Wheel
@@ -168,7 +169,6 @@ const TriviaGame = () => {
             </div>
           )}
         </div>
-        
       </div>
     </div>
   );

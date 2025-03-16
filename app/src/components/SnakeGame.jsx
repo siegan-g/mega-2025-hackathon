@@ -3,11 +3,12 @@ import appleIcon from "../assets/apple.png";
 import paperIcon from "../assets/paper.png";
 import canIcon from "../assets/can.png";
 import coinIcon from "../assets/coin.png";
+import snakeGameImage from "../assets/snake-game.png"; 
 import { FaRedo } from "react-icons/fa";
 import backgroundImage from "../assets/background.jpg";
 
 const GRID_SIZE = 20;
-const CELL_SIZE = 30;
+const CELL_SIZE = 25;
 const DIRECTIONS = {
   ArrowUp: { x: 0, y: -1 },
   ArrowDown: { x: 0, y: 1 },
@@ -98,7 +99,7 @@ const SnakeGame = () => {
 
   return (
     <div style={{ backgroundColor: "#d5d8dc", backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }} className="flex flex-col items-center h-screen p-8">
-      <h1 className="text-[#1e8449] text-4xl font-bold mb-8">Snake Game</h1>
+      <img src={snakeGameImage} alt="Snake Game" className="mb-8" style={{ width: '300px', height: 'auto' }} />
 
       <div className="flex items-start space-x-8">
         <div className="flex flex-col">
@@ -109,20 +110,6 @@ const SnakeGame = () => {
               the walls or yourself, have fun and help keep the planet clean!
             </p>
           </div>
-
-          {isGameOver && (
-            <div className="mt-4 flex items-center">
-              <h3 className="text-[#ec7063] text-lg font-semibold mr-2">Game Over!</h3>
-              <button
-                onClick={resetGame}
-                style={{ backgroundColor: "#52be80" }}
-                className="px-4 py-2 text-white rounded flex items-center space-x-2"
-              >
-                <FaRedo className="w-5 h-5" />
-                <span>Play Again</span>
-              </button>
-            </div>
-          )}
         </div>
 
         <div
@@ -162,6 +149,22 @@ const SnakeGame = () => {
           <span className="text-xl font-bold">{score}</span>
         </div>
       </div>
+
+      {isGameOver && (
+        <div className="fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h3 className="text-[#ec7063] text-lg font-semibold mb-4">Game Over!</h3>
+            <button
+              onClick={resetGame}
+              style={{ backgroundColor: "#52be80" }}
+              className="px-4 py-2 text-white rounded flex items-center space-x-2"
+            >
+              <FaRedo className="w-5 h-5" />
+              <span>Play Again</span>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/GradientShadow.css'; 
+import learningHubImage from "../assets/learning-hub.png"; 
 
 const LearningHub = () => {
     const learning = [
@@ -72,57 +73,60 @@ const LearningHub = () => {
     ]
 
     return (
-        <div className="p-4">
-            <div className="px-4 py-2">
-            <h1 className="text-3xl font-bold mb-4">Learning Hub</h1>
-            <h2 className="text-xl font-bold mb-2">Microlearning Techniques</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {learning.map((learn) => (
-                    <a
-                        key={learn.id}
-                        href={learn.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border rounded-lg p-4 shadow-md cursor-pointer transform transition-transform duration-200 hover:shadow-lg hover:scale-105 gradient-border"
-                    >
-                        <h2 className="text-xl font-bold mb-2">{learn.title}</h2>
-                        <p>{learn.description}</p>
-                    </a>
-                ))}
+        <div className="p-4 bg-gray-100 min-h-screen flex flex-col items-center">
+            <img src={learningHubImage} alt="Learning Hub" className="mb-8" style={{ width: '500px', height: 'auto' }} />
+            <div className="bg-white p-6 rounded-lg shadow-md mb-6 items-center">
+                  
+                <h2 className="text-2xl font-bold mb-4 text-center">Microlearning Techniques</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {learning.map((learn) => (
+                        <a
+                            key={learn.id}
+                            href={learn.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border rounded-lg p-6 shadow-md cursor-pointer transform transition-transform duration-200 hover:shadow-lg hover:scale-105 gradient-border bg-white"
+                        >
+                            <h2 className="text-xl font-bold mb-2">{learn.title}</h2>
+                            <p>{learn.description}</p>
+                        </a>
+                    ))}
+                </div>
             </div>
+            <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+                <h2 className="text-2xl font-bold mb-4 text-center">Courses</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {courses.map((course) => (
+                        <a
+                            key={course.id}
+                            href={course.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border rounded-lg p-6 shadow-md cursor-pointer transform transition-transform duration-200 hover:shadow-lg hover:scale-105 gradient-border bg-white"
+                        >
+                            <h2 className="text-xl font-bold mb-2">{course.title}</h2>
+                            <p>{course.description}</p>
+                        </a>
+                    ))}
+                </div>
             </div>
-            <div className="px-4 py-2">
-            <h2 className="text-xl font-bold mb-2">Courses</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {courses.map((course) => (
-                    <a
-                        key={course.id}
-                        href={course.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border rounded-lg p-4 shadow-md cursor-pointer transform transition-transform duration-200 hover:shadow-lg hover:scale-105 gradient-border"
-                    >
-                        <h2 className="text-xl font-bold mb-2">{course.title}</h2>
-                        <p>{course.description}</p>
-                    </a>
-                ))}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+                <h2 className="text-2xl font-bold mb-4 text-center">Resources</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {resources.map((resource) => (
+                        <a
+                            key={resource.id}
+                            href={resource.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border rounded-lg p-6 shadow-md cursor-pointer transform transition-transform duration-200 hover:shadow-lg hover:scale-105 gradient-border bg-white"
+                        >
+                            <h2 className="text-xl font-bold mb-2">{resource.title}</h2>
+                            <p>{resource.description}</p>
+                        </a>
+                    ))}
+                </div>
             </div>
-            <h2 className="text-xl font-bold mb-2">Resources</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {resources.map((resource) => (
-                    <a
-                        key={resource.id}
-                        href={resource.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border rounded-lg p-4 shadow-md cursor-pointer transform transition-transform duration-200 hover:shadow-lg hover:scale-105 gradient-border"
-                    >
-                        <h2 className="text-xl font-bold mb-2">{resource.title}</h2>
-                        <p>{resource.description}</p>
-                    </a>
-                ))}
-            </div>
-        </div>
         </div>
     );
 };
