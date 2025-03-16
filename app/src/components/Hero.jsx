@@ -1,15 +1,6 @@
+import { AnimatedButton } from "./AnimatedButton";
+
 const Hero = () => {
-  const HeroButton = ({ label, colour, href }) => (
-    <div className="flex justify-between">
-      <button
-        className={`display-block bg-[${colour}] font-bold text-white px-4 py-2 w-full rounded-md text-xl md:text-2xl`}
-      >
-        <a className="px-5 py-12" href={href}>
-          {label}
-        </a>
-      </button>
-    </div>
-  );
   return (
     <section id="home" className="pt-30 md:pt-10">
       <div className="flex flex-col md:flex-row">
@@ -35,8 +26,20 @@ const Hero = () => {
             </h3>
           </div>
           <div className="flex flex-col md:flex-row gap-12">
-            <HeroButton label="Play" href="#programs" colour="#0BA159" />
-            <HeroButton label="Learn" href="#learn" colour="#63677A" />
+            <div>
+              <AnimatedButton
+                text="Play"
+                transitionText="🏆"
+                className="bg-[#1ED760] px-12 py-4 rounded-full font-bold text-white tracking-widest uppercase transform hover:scale-105 hover:bg-[#21e065] transition-colors duration-200 flex justify-center group/modal-btn w-[150px]"
+              ></AnimatedButton>
+            </div>
+            <div>
+              <AnimatedButton
+                text="Learn"
+                transitionText="📖"
+                className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200  transition duration-200 flex justify-center group/modal-btn w-[150px]"
+              ></AnimatedButton>
+            </div>
           </div>
         </div>
         <div className="flex md:w-1/4 items-center">
