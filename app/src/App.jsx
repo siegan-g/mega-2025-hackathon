@@ -1,3 +1,8 @@
+import ExpandableCard from "./components/ExpandableCard";
+import { Features } from "./components/Features";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import Ngo from "./components/Ngo";
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Games from './components/Games';
@@ -14,7 +19,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<><Navbar /><Hero /><Games /><LearningHub /><Analytics /></>} />
+        <Route path="/" element={<><Navbar /><Hero /><Games /><LearningHub /><Analytics /><Features/>
+          <Ngo /></>} />
         <Route path="/wordle" element={<WordleGame />} />
         <Route path="/snake" element={<SnakeGame />} />
         <Route path="/trivia" element={<TriviaGame />} />

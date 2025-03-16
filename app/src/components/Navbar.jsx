@@ -10,6 +10,7 @@ const NavbarItem = ({ label, hasIcon, href }) => (
 const links = [
   { name: "Home", href: "#home", hasIcon: false },
   { name: "Programs", href: "#programs", hasIcon: false },
+  { name: "NGOs", href: "#ngos", hasIcon: true },
   { name: "Contact", href: "#contact", hasIcon: true },
   { name: "Roadmap", href: "#roadmap", hasIcon: true },
 ];
@@ -17,7 +18,7 @@ const links = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="fixed flex p-8 flex-row gap-8 items-center justify-between md:justify-start z-10 bg-white w-full shadow-md">
+    <nav className="fixed flex p-8 flex-row gap-8 items-center justify-between md:justify-start z-100 bg-white w-full shadow-md">
       <div className="flex flex-row gap-2 items-center">
         <Earth color="#0BA159" size={36} />
         <a className="font-bold text-xl">NatureTek Academy</a>
@@ -42,7 +43,7 @@ const Navbar = () => {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         {isOpen && (
-          <div className="flex justify-center w-screen absolute top-24 left-0 w-full h-screen bg-white z-20">
+          <div className="flex justify-center w-screen absolute top-24 left-0 h-screen bg-white z-20">
             <ul className="px-8 py-5 flex flex-col gap-8 font-bold text-3xl text-[#63677A]">
               {links.map((link) => (
                 <NavbarItem
