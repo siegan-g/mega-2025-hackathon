@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import gamesImage from "../assets/games.png"; 
+import '../styles/GradientShadow.css'; 
 
 const Games = () => {
   const navigate = useNavigate();

@@ -29,5 +29,5 @@
     border-radius: inherit;
     background: linear-gradient(45deg, #5485b6, #569e80, #FF7400, #f3578b);
     background-size: 200% 200%;
-    animation: gradient-border 3s linear infinite; /* Adjusted duration */
+    animation: gradient-border 3s linear infinite; 
   }
