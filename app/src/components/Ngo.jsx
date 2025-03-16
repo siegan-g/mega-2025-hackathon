@@ -1,5 +1,6 @@
 import ExpandableCard from "./ExpandableCard";
 import Card from "../models/card";
+import { Header } from "./Header";
 
 const cards = [
   new Card(
@@ -46,18 +47,16 @@ const cards = [
 
 const Ngo = ({}) => (
   <section id="ngos" className=" pt-30 px-12">
-    <div className="flex flex-col justify-center items-center py-8">
-      <h2 className="text-3xl md:text-5xl font-bold">Non-Profit Organisations</h2>
-    </div>
-    <div className="text-md md:text-lg md:px-0 items-center">
-      <h3 className="text-[#63677A]">
-        Discover the Change-Makers: Explore these innovative organizations
-        driving sustainable development and join the movement toward a greener,
-        more equitable future for all.
-      </h3>
-    </div>
-    <div className="pt-12">
-      <ExpandableCard cards={cards} />
+    <div className="relative pt-10 lg:pt-40 max-w-7xl mx-auto">
+      <Header
+        heading="Discover the Organisations Making a Difference"
+        subtitle={
+          "Explore these innovative NGOs driving sustainable development and join the movement toward a greener, more equitable future for all."
+        }
+      />
+      <div className="pt-12">
+        <ExpandableCard cards={cards} />
+      </div>
     </div>
   </section>
 );
