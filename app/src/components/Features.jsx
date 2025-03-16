@@ -3,28 +3,28 @@ import { cn } from "../lib/utils";
 import { motion } from "motion/react";
 import { Play } from "lucide-react";
 
-export function Games() {
-  const games = [
+export function Features() {
+  const features = [
     {
-      title: "Snake",
+      title: "Stats for Nerds 🤓",
       description:
-        "A classic game that challenges your reflexes and strategic thinking, with a twist.",
+        "Explore powerful visualizations and analytics that transform complex sustainability data into actionable insights, empowering you to track global progress across the UN's SDGs and discover where your impact matters most.",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800 border-neutral-100",
     },
     {
-      title: "GreenGuess",
+      title: "Games 🎮",
       description:
-        "A spin on a popular word guessing game with a eco-friendly theme",
+        "Dive into fun, interactive games that transform UN Sustainable Development Goals into exciting adventures for the whole family!",
       skeleton: <SkeletonTwo />,
       className:
         "border-b col-span-1 lg:col-span-2 dark:border-neutral-800 border-neutral-100",
     },
     {
-      title: "Watch our AI on YouTube",
+      title: "Learning Hub",
       description:
-        "Whether its you or Tyler Durden, you can get to know about our product on YouTube",
+        "Unlock a treasure trove of captivating resources, thought-provoking articles, and hands-on interactive tools that bring the UN Sustainable Development Goals to life in extraordinary ways.",
       skeleton: <SkeletonThree />,
       className:
         "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800 border-neutral-100",
@@ -52,7 +52,7 @@ export function Games() {
         </div>
         <div className="relative ">
           <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800 border-neutral-100">
-            {games.map((feature) => (
+            {features.map((feature) => (
               <FeatureCard key={feature.title} className={feature.className}>
                 <FeatureTitle>{feature.title}</FeatureTitle>
                 <FeatureDescription>{feature.description}</FeatureDescription>
