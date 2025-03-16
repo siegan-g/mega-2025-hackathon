@@ -51,7 +51,7 @@ const Ngo = ({}) => (
       <Header
         heading="Discover the Organisations Making a Difference"
         subtitle={
-          "Explore these innovative organizations driving sustainable development and join the movement toward a greener, more equitable future for all."
+          "Explore these innovative NGOs driving sustainable development and join the movement toward a greener, more equitable future for all."
         }
       />
       <div className="pt-12">

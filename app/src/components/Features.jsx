@@ -35,7 +35,7 @@ export function Features() {
       <div className="relative pt-10 lg:pt-40 max-w-7xl mx-auto">
         <Header
           heading="Making Learning About Sustainability Accessible"
-          subtitle="Dive into fun, interactive games that transform UN Sustainable Development Goals into exciting adventures for the whole family!"
+          subtitle="Explore, learn, and play your way to a sustainable future with our interactive tools and resources"
         />
         <div className="relative ">
           <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800 border-neutral-100">
