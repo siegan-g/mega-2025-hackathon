@@ -1,5 +1,5 @@
 import ExpandableCard from "./components/ExpandableCard";
-import { Games } from "./components/Games";
+import { Features } from "./components/Features";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Ngo from "./components/Ngo";
@@ -9,6 +9,7 @@ function App() {
     <>
       <Navbar />
       <Hero />
+      <Features/>
       <Ngo />
     </>
   );

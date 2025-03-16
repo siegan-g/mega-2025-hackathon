@@ -1,4 +1,3 @@
-import React from "react";
 import { cn } from "../lib/utils";
 import { motion } from "motion/react";
 import { Play } from "lucide-react";
@@ -11,30 +10,23 @@ export function Features() {
         "Explore powerful visualizations and analytics that transform complex sustainability data into actionable insights, empowering you to track global progress across the UN's SDGs and discover where your impact matters most.",
       skeleton: <SkeletonOne />,
       className:
-        "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800 border-neutral-100",
+        "col-span-1 lg:col-span-3 border-b lg:border-r dark:border-neutral-800 border-neutral-100",
     },
     {
-      title: "Games 🎮",
-      description:
-        "Dive into fun, interactive games that transform UN Sustainable Development Goals into exciting adventures for the whole family!",
-      skeleton: <SkeletonTwo />,
-      className:
-        "border-b col-span-1 lg:col-span-2 dark:border-neutral-800 border-neutral-100",
-    },
-    {
-      title: "Learning Hub",
+      title: "Learning Hub 📚",
       description:
         "Unlock a treasure trove of captivating resources, thought-provoking articles, and hands-on interactive tools that bring the UN Sustainable Development Goals to life in extraordinary ways.",
       skeleton: <SkeletonThree />,
       className:
-        "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800 border-neutral-100",
+        "border-b col-span-1 lg:col-span-3 dark:border-neutral-800 border-neutral-100",
     },
     {
-      title: "Deploy in seconds",
+      title: "Interactive Games 🎮",
       description:
-        "With our blazing fast, state of the art, cutting edge, we are so back cloud servies (read AWS) - you can deploy your model in seconds.",
-      skeleton: <SkeletonFour />,
-      className: "col-span-1 lg:col-span-3 border-b lg:border-none",
+        "Dive into fun, interactive games that transform UN Sustainable Development Goals into exciting adventures for the whole family!",
+      skeleton: <SkeletonTwo />,
+      className:
+        "col-span-1 lg:col-span-6 dark:border-neutral-800 border-neutral-100",
     },
   ];
   return (
@@ -42,7 +34,7 @@ export function Features() {
       <div className="relative py-10 lg:py-40 max-w-7xl mx-auto">
         <div className="px-8">
           <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-semibold text-black dark:text-white">
-            Learn Sustainability By Playing Games
+            Making Learning About Sustainability Accessible
           </h4>
 
           <p className="text-md md:text-lg  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
@@ -55,7 +47,9 @@ export function Features() {
             {features.map((feature) => (
               <FeatureCard key={feature.title} className={feature.className}>
                 <FeatureTitle>{feature.title}</FeatureTitle>
-                <FeatureDescription>{feature.description}</FeatureDescription>
+                <div class="flex justify-center">
+                  <FeatureDescription>{feature.description}</FeatureDescription>
+                </div>
                 <div className=" h-full w-full">{feature.skeleton}</div>
               </FeatureCard>
             ))}
@@ -76,7 +70,7 @@ const FeatureCard = ({ children, className }) => {
 
 const FeatureTitle = ({ children }) => {
   return (
-    <p className=" max-w-5xl mx-auto text-left tracking-tight text-black dark:text-white text-xl md:text-2xl md:leading-snug">
+    <p className=" max-w-5xl mx-auto text-center tracking-tight text-black dark:text-white text-xl md:text-2xl md:leading-snug">
       {children}
     </p>
   );
@@ -86,9 +80,9 @@ const FeatureDescription = ({ children }) => {
   return (
     <p
       className={cn(
-        "text-sm md:text-base  max-w-4xl text-left mx-auto",
-        "text-neutral-500 text-center font-normal dark:text-neutral-300",
-        "text-left max-w-sm mx-0 md:text-sm my-2"
+        "text-sm md:text-base  max-w-4xl  mx-auto",
+        "text-neutral-500  font-normal dark:text-neutral-300",
+        "text-center max-w-sm mx-0 md:text-sm my-2"
       )}
     >
       {children}
@@ -103,7 +97,7 @@ export const SkeletonOne = () => {
         <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
           {/* TODO */}
           <img
-            src="https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1920&q=75"
+            src="../src/assets/stats.png"
             alt="header"
             width={800}
             height={800}
@@ -146,8 +140,6 @@ export const SkeletonTwo = () => {
     "https://images.unsplash.com/photo-1517322048670-4fba75cbbb62?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1573790387438-4da905039392?q=80&w=3425&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1554931670-4ebfabf6e7a9?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1546484475-7f7bd55792da?q=80&w=2581&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
 
   const imageVariants = {
@@ -163,7 +155,7 @@ export const SkeletonTwo = () => {
     },
   };
   return (
-    <div className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden">
+    <div className="relative flex justify-center items-start p-8 gap-10 h-full overflow-hidden">
       {/* TODO */}
       <div className="flex flex-row -ml-20">
         {images.map((image, idx) => (
@@ -175,29 +167,7 @@ export const SkeletonTwo = () => {
             }}
             whileHover="whileHover"
             whileTap="whileTap"
-            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
-          >
-            <img
-              src={image}
-              alt="bali images"
-              width="500"
-              height="500"
-              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover shrink-0"
-            />
-          </motion.div>
-        ))}
-      </div>
-      <div className="flex flex-row">
-        {images.map((image, idx) => (
-          <motion.div
-            key={"images-second" + idx}
-            style={{
-              rotate: Math.random() * 20 - 10,
-            }}
-            variants={imageVariants}
-            whileHover="whileHover"
-            whileTap="whileTap"
-            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
+            className="rounded-xl -mr-4 mt-4 p-1 cursor-pointer bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
           >
             <img
               src={image}
