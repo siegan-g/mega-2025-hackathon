@@ -1,6 +1,7 @@
 import { AnimatedButton } from "./AnimatedButton";
 
 const Hero = () => {
+
   return (
     <section id="home" className="pt-30 md:pt-10">
       <div className="flex flex-col md:flex-row">
@@ -31,6 +32,7 @@ const Hero = () => {
                 text="Play"
                 transitionText="🏆"
                 className="bg-[#1ED760] px-12 py-4 rounded-full font-bold text-white tracking-widest uppercase transform hover:scale-105 hover:bg-[#21e065] transition-colors duration-200 flex justify-center group/modal-btn w-[150px]"
+                to="/games"
               ></AnimatedButton>
             </div>
             <div>
@@ -38,6 +40,7 @@ const Hero = () => {
                 text="Learn"
                 transitionText="📖"
                 className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200  transition duration-200 flex justify-center group/modal-btn w-[150px]"
+                to="/learn"
               ></AnimatedButton>
             </div>
           </div>
