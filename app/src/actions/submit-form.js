@@ -22,9 +22,11 @@ export async function submitForm(initialState, formData) {
       email,
       message,
     });
+    console.log(result);
 
     if (!result.success) {
       // Return validation errors
+      initialState.returnMessage = "Please fill out all required fields";
       return {
         ...initialState,
         errors: result.error.flatten().fieldErrors,
