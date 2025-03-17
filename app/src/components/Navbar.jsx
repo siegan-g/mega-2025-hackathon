@@ -1,22 +1,23 @@
 import { ArrowUpRight, Earth, Menu, X } from "lucide-react";
 import { useState } from "react";
 
-const NavbarItem = ({ label, hasIcon, href }) => (
-  <li className="hover:text-[#0BA159]">
-    <a href={href}>{label}</a>
-    {hasIcon && <ArrowUpRight className="inline stroke-3 size-4.5 ml-2" />}
-  </li>
-);
 const links = [
-  { name: "Home", href: "#home", hasIcon: false },
-  { name: "Programs", href: "#programs", hasIcon: false },
-  { name: "NGOs", href: "#ngos", hasIcon: true },
-  { name: "Contact", href: "#contact", hasIcon: true },
-  { name: "Roadmap", href: "#roadmap", hasIcon: true },
+  { name: "Home", href: "/#", hasIcon: false },
+  { name: "Features", href: "/#features", hasIcon: false },
+  { name: "NGOs", href: "/#ngos", hasIcon: false },
+  { name: "Contact", href: "/#contact", hasIcon: true },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const NavbarItem = ({ label, hasIcon, href }) => (
+    <li className="hover:text-[#0BA159]">
+      <a onClick={() => setIsOpen(false)} href={href}>
+        {label}
+      </a>
+      {hasIcon && <ArrowUpRight className="inline stroke-3 size-4.5 ml-2" />}
+    </li>
+  );
   return (
     <nav className="fixed flex p-8 flex-row gap-8 items-center justify-between md:justify-start z-100 bg-white w-full shadow-md">
       <div className="flex flex-row gap-2 items-center">
