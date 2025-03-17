@@ -1,7 +1,6 @@
 import { AnimatedButton } from "./AnimatedButton";
 
 const Hero = () => {
-
   return (
     <section id="home" className="pt-30 md:pt-10">
       <div className="flex flex-col md:flex-row">
@@ -48,7 +47,7 @@ const Hero = () => {
         <div className="flex md:w-1/4 items-center">
           <img
             className="absolute p-10 opacity-40 -z-10 md:opacity-100"
-            src="../src/assets/hero-image.png"
+            src="https://8caxhaun8wrbazbn.public.blob.vercel-storage.com/hero-image-GTCLUXUhAaroD9wMtFnNgFvKvE0s45.png"
           />
         </div>
       </div>
