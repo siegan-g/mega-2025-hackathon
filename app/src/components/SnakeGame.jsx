@@ -8,7 +8,7 @@ import { FaRedo } from "react-icons/fa";
 import backgroundImage from "../assets/background.jpg";
 
 const GRID_SIZE = 20;
-const CELL_SIZE = 30;
+const CELL_SIZE = 25;
 const DIRECTIONS = {
   ArrowUp: { x: 0, y: -1 },
   ArrowDown: { x: 0, y: 1 },
@@ -98,7 +98,7 @@ const SnakeGame = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#d5d8dc", backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }} className="flex flex-col items-center h-screen p-8">
+    <div style={{ backgroundColor: "#d5d8dc", backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: 'center' }} className="flex flex-col items-center h-screen p-8">
       <img src={snakeGameImage} alt="Snake Game" className="mb-8" style={{ width: '300px', height: 'auto' }} />
 
       <div className="flex items-start space-x-8">
