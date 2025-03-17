@@ -48,7 +48,7 @@ const Hero = () => {
         <div className="flex md:w-1/4 items-center">
           <img
             className="absolute p-10 opacity-40 -z-10 md:opacity-100"
-            src="../src/assets/earth2.png"
+            src="../src/assets/hero-image.png"
           />
         </div>
       </div>
