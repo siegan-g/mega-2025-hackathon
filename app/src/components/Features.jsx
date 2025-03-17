@@ -36,7 +36,7 @@ export function Features() {
     },
   ];
   return (
-    <section id="games" className="pt-10 md:pt-30 px-12">
+    <section id="features" className="pt-10 md:pt-30 px-12">
       <div className="relative pt-10 lg:pt-40 max-w-7xl mx-auto">
         <Header
           heading="Making Learning About Sustainability Accessible"
