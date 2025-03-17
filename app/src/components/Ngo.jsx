@@ -46,8 +46,8 @@ const cards = [
 ];
 
 const Ngo = ({}) => (
-  <section id="ngos" className=" pt-30 px-12">
-    <div className="relative pt-10 lg:pt-40 max-w-7xl mx-auto">
+  <section id="ngos" className=" pt-30 md:pt-30 px-12">
+    <div className="relative max-w-7xl mx-auto">
       <Header
         heading="Discover the Organisations Making a Difference"
         subtitle={
